@@ -1,4 +1,4 @@
-# bank_fe
+# Orange GYM
 
 ## Project setup
 ```
