@@ -34,41 +34,35 @@ export default {
 
   methods: {
     processLogInUser: async function () {
-          this.$emit("completedLogIn");
-    //   await this.$apollo
-    //     .mutate({
-    //       mutation: gql`
-    //         mutation ($credentials: CredentialsInput!) {
-    //           logIn(credentials: $credentials) {
-    //             refresh
-    //             access
-    //           }
-    //         }
-    //       `,
-    //       variables: {
-    //         credentials: this.user,
-    //       },
-    //     })
-    //     .then((result) => {
-    //       let dataLogIn = {
-    //         username: this.user.username,
-    //         token_access: result.data.logIn.access,
-    //         token_refresh: result.data.logIn.refresh,
-    //       };
-    //       this.$emit("completedLogIn", dataLogIn);
-    //     })
-    //     .catch((error) => {
-    //       alert("ERROR 401: Credenciales Incorrectas.");
-    //     });
+      await this.$apollo
+        .mutate({
+          mutation: gql`
+            mutation ($credentials: CredentialsInput!) {
+              logIn(credentials: $credentials) {
+                refresh
+                access
+              }
+            }
+          `,
+          variables: {
+            credentials: this.user,
+          },
+        })
+        .then((result) => {
+          let dataLogIn = {
+            username: this.user.username,
+            token_access: result.data.logIn.access,
+            token_refresh: result.data.logIn.refresh,
+          };
+          this.$emit("completedLogIn", dataLogIn);
+        })
+        .catch((error) => {
+          alert("ERROR 401: Credenciales Incorrectas.");
+        });
     },
   },
 };
 </script>
-
-
-
-
-
 
 <style>
 .logIn_user {

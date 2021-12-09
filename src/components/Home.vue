@@ -1,22 +1,27 @@
 <template>
-  <div class="information">
-    <h1>
-      ¡Bienvenido
-      <!-- <span>{{ userDetailById.name }}</span -->
-      >!
-    </h1>
-    <div class="details">
-      <h3>Su información es la siguiente</h3>
-      <h2>
-        Nombre de usuario:
-        <!-- <span>{{ userDetailById.username }}</span> -->
-      </h2>
-      <h2>
-        Correo electrónico:
-        <!-- <span>{{ userDetailById.email }}</span> -->
-      </h2>
+  <div class="info-general">
+    <div class="img-user">
+      <img src='../assets/fitness.png'/>
+    </div>
+    <div class="information">
+      <h1>
+        ¡Bienvenid@
+        <span>{{ userDetailById.name }}</span
+        >!
+      </h1>
+      <div class="details">
+        <h2>
+          Nombre de usuario:
+          <p>{{ userDetailById.username }}</p>
+        </h2>
+        <h2>
+          Correo electrónico:
+          <p>{{ userDetailById.email }}</p>
+        </h2>
+      </div>
     </div>
   </div>
+  
 </template>
 
 
@@ -60,44 +65,59 @@ export default {
 
 
 <style>
+.info-general {
+  padding: 40px 40px 40px 5px;
+  display: flex;
+  height: 100%;
+}
+.img-user{
+  margin-right:10px;
+  border-radius:10px;
+  display: flex;
+  justify-content: center;
+}
+.img-user img {
+  height: 100%;
+  margin: auto;
+}
+
 .information {
   margin: 0;
   padding: 0%;
   height: 100%;
   width: 100%;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border: 2px solid #ff5403;
+  border-radius:10px
 }
 
 .information h1 {
-  font-size: 60px;
-  color: #ff5403;
+  font-size: 50px;
+  background-color: #ffc0a1;
+    box-shadow: 5px 5px 10px rgb(167, 167, 167);
+  border-radius:8px;
+
 }
 
 .information h2 {
-  font-size: 40px;
-  color: #ff5403;
-  font-weight: bold;
-}
-.information span {
-  color: crimson;
+  font-size: 10px;
   font-weight: bold;
 }
 .details h3 {
-  font-size: 35px;
-  color: #283747;
+  font-size: 40px;
   text-align: center;
 }
 .details h2 {
   font-size: 35px;
-  color: #283747;
+}
+.details p{
+  background-color: #c0c0cc;
+  border-radius:8px;
 }
 .details {
-  border: 3px solid rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
   padding: 30px 80px;
   margin: 30px 0 0 0;
 }
