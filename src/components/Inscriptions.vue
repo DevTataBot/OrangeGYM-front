@@ -1,21 +1,23 @@
 <template>
   <div id="Transaction" class="transaction">
     <div class="container_transaction">
-      <h2>Realizar Transacción</h2>
+      <h2>Realizar Incripción</h2>
       <form v-on:submit.prevent="processTransaction">
+        <label for="">Planes:</label>
+        <select class="form-control" v-model="selectedId">
+          <option v-for="item in items" v-bind:value="item" :key="item.id"  >
+            {{ item.val }} --> {{item.id}} 
+          </option>
+        </select>
+
+        <br />
+        <label for="">Costo:</label>
         <input
-          type="text"
-          v-model="createTransaction.usernameDestiny"
-          placeholder="Usuario Destino"
+          disabled
+          :value="'$ '+selectedId.id + ' COP'"
         />
         <br />
-        <input
-          type="number"
-          v-model="createTransaction.value"
-          placeholder="Valor"
-        />
-        <br />
-        <button type="submit">Realizar Transacción</button>
+        <button type="submit">Realizar Inscripción</button>
       </form>
     </div>
   </div>
@@ -26,6 +28,12 @@ export default {
   name: "Transaction",
   data: function () {
     return {
+      items: [
+        { id: 50000, val: "PlanBlack" },
+        { id: 70000, val: "PlanSmart" },
+        { id: 80000, val: "PlanWhite" },
+      ],
+      selectedId:0,
       createTransaction: {
         usernameOrigin: localStorage.getItem("username"),
         usernameDestiny: "",
@@ -43,6 +51,9 @@ export default {
         return;
       }
       localStorage.setItem("token_access", "");
+      this.createTransaction["usernameDestiny"] = this.selectedId.val
+      this.createTransaction["value"] = this.selectedId.id
+     
       await this.$apollo
         .mutate({
           mutation: gql`
@@ -99,7 +110,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("../assets/transaction-img.jpg") ;
+  background: url("../assets/transaction-img.jpg");
 }
 .container_transaction {
   background-color: #ff5403;

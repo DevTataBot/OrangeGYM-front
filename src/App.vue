@@ -3,10 +3,10 @@
     <div class="header">
       <h1>Orange GYM</h1>
       <nav>
-        <button v-if="is_auth" v-on:click="loadHome">Comprar Planes</button>
-        <button v-if="is_auth" v-on:click="loadHome">Rutinas</button>
-        <button v-if="is_auth" v-on:click="loadAccount">Cuenta</button>
-        <button v-if="is_auth" v-on:click="loadTransaction">Transacciones</button>
+        <button v-if="is_auth" v-on:click="loadPlanes">Comprar Planes</button>
+        <button v-if="is_auth" v-on:click="loadPlanes">Rutinas</button>
+        <button v-if="is_auth" v-on:click="loadAccount">Mi Cuenta</button>
+        <button v-if="is_auth" v-on:click="loadTransaction">Inscripciones</button>
         <button v-if="is_auth" v-on:click="logOut">Cerrar Sesión</button>
         <button v-if="!is_auth" v-on:click="loadLogIn">Iniciar Sesión</button>
         <button v-if="!is_auth" v-on:click="loadSignUp">Registrarse</button>
@@ -58,7 +58,9 @@ export default {
     loadSignUp: function () {
       this.$router.push({ name: "signUp" });
     },
-
+    loadPlanes: function () {
+      this.$router.push({ name: "planes" });
+    },
     completedLogIn: function (data) {
       localStorage.setItem("isAuth", true);
       localStorage.setItem("username", data.username);
