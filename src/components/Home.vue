@@ -12,12 +12,12 @@
       <div class="details">
         <h2>
           Nombre de usuario:
-          <p>{{ userDetailById.username }}</p>
         </h2>
+        <p>{{ userDetailById.username }}</p>
         <h2>
           Correo electrónico:
-          <p>{{ userDetailById.email }}</p>
         </h2>
+        <p>{{ userDetailById.email }}</p>
       </div>
     </div>
   </div>
@@ -69,15 +69,18 @@ export default {
   padding: 40px 40px 40px 5px;
   display: flex;
   height: 100%;
+  background: url('../assets/home-bg.jpg');
 }
 .img-user{
-  margin-right:10px;
-  border-radius:10px;
+  margin-left: 70px;
+  border-radius:10px 0 0 10px;
   display: flex;
   justify-content: center;
+  width: 50%;
+  background-color: rgba(41, 41, 41, 0.486);
 }
 .img-user img {
-  height: 100%;
+  height: 300px;
   margin: auto;
 }
 
@@ -90,16 +93,15 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 2px solid #ff5403;
-  border-radius:10px
+  background-color: rgba(41, 41, 41, 0.486);
+  border-radius:0 10px 10px 0;
 }
 
 .information h1 {
   font-size: 50px;
   background-color: #ffc0a1;
-    box-shadow: 5px 5px 10px rgb(167, 167, 167);
+  box-shadow: 5px 5px 10px;
   border-radius:8px;
-
 }
 
 .information h2 {
@@ -107,15 +109,18 @@ export default {
   font-weight: bold;
 }
 .details h3 {
-  font-size: 40px;
+  font-size: 30px;
   text-align: center;
 }
 .details h2 {
   font-size: 35px;
+  background-color: #c0c0cc;
+  border-radius: 5px;
 }
 .details p{
-  background-color: #c0c0cc;
+  font-size: 25px;
   border-radius:8px;
+  color: #fff;
 }
 .details {
   padding: 30px 80px;

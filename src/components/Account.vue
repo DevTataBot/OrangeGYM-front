@@ -1,22 +1,23 @@
 <template>
-    <h2 class="title">Transacciones</h2>
+<div class="general">
+  <h3 class="title">Mis Inscripciones</h3>
   <div id="Historial">
     <div class="container">
       <h2>
         Titular Cuenta:
-        <p>{{ username }}</p>
       </h2>
+      <p>{{ username }}</p>
       <h2>
-        Saldo:
-        <p>${{ accountByUsername.balance }} COP</p>
+        Saldo:<br>
       </h2>
+        <p>${{ accountByUsername.balance }} COP</p>
       <h2>
         Último Movimiento:
-        <p>
+      </h2>
+      <p>
           {{ accountByUsername.lastChange.substring(0, 10) }}
           {{ accountByUsername.lastChange.substring(11, 19) }}
-        </p>
-      </h2>
+      </p>
     </div>
     <div class="container-table">
       <table>
@@ -36,6 +37,7 @@
         </tr>
       </table>
     </div>
+  </div>
   </div>
 </template>
 
@@ -98,19 +100,25 @@ export default {
 
 
 <style>
-.title{
-    width: 300px;
-    font-size: 40px;
-    background-color: #ffd4c0;
-    border-radius: 5px;
-    margin: 25px auto 0;
-    box-shadow: 5px 5px 10px rgb(167, 167, 167);
+.general{
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  background: url('../assets/cuenta-bg.jpg');
+}
+.title {
+  width: 350px;
+  font-size: 40px;
+  background-color: #ffd4c0;
+  border-radius: 5px;
+  margin: auto ;
+  box-shadow: 5px 5px 10px;
 }
 #Historial {
   width: 100%;
   display: flex;
   align-items: center;
-    justify-content: space-evenly;
+  justify-content: space-evenly;
 }
 #Historial .container-table {
   width: 50%;
@@ -121,16 +129,14 @@ export default {
 #Historial table {
   width: 100%;
   border-collapse: collapse;
-
-  border: 1px solid rgba (0, 0, 0, 0.3);
+  border: 1px solid #0000004d;
 }
 #Historial table td,
 #Historial table th {
   border: 1px solid #ddd;
-
   padding: 8px;
 }
-#Historial table tr:nth-child(even) {
+#Historial table {
   background-color: #f2f2f2;
 }
 #Historial table tr:hover {
@@ -139,30 +145,30 @@ export default {
 #Historial table th {
   padding-top: 12px;
   padding-bottom: 12px;
-
-  text-align: left;
-  background-color: #ff5403;
-
-  color: white;
+  text-align: center;
+  background-color: #000;
+  color: #ff5403;
 }
-#Historial > h2 {
+#Historial > h3 {
   font-size: 25px;
 }
 #Historial .container {
+  background-color: #fff;
   padding: 30px;
-  border: 3px solid rgba (0, 0, 0, 0.3);
-
+  box-shadow: 5px 5px 10px;
   border-radius: 20px;
-
   margin: 5% 0 1% 0;
 }
 #Historial .container h2 {
   font-size: 25px;
-
+  background-color: #c0c0cc;
+  border-radius: 5px;
 }
 #Historial .container p {
-    background-color: #c0c0cc;
-    border-radius: 5px;
+  border-radius: 5px;
   font-weight: bold;
+  font-size: 18px;
+  width: 200px;
+  color: #000;
 }
 </style>

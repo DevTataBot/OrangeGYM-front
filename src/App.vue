@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app">
     <div class="header">
-      <h1>Orange GYM</h1>
+      <h1>Orange GYM  <img src="./assets/muscle.png" alt="icon"> </h1>
       <nav>
         <button v-if="is_auth" v-on:click="loadPlanes">Comprar Planes</button>
         <button v-if="is_auth" v-on:click="loadPlanes">Rutinas</button>
@@ -133,6 +133,10 @@ body {
 .header h1 {
   width: 20%;
   text-align: center;
+}
+.header img{
+  height: 35px;
+  margin: 0;
 }
 
 .header nav {
